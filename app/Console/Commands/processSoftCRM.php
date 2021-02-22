@@ -7,14 +7,14 @@ use App\Services\SystemLogService;
 use Illuminate\Console\Command;
 use Request;
 
-class processNamasteji extends Command
+class processSoftCRM extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'process-Namasteji';
+    protected $signature = 'process-softcrm';
 
     /**
      * The console command description.
@@ -56,9 +56,9 @@ class processNamasteji extends Command
 
         $this->info('===============================================================');
         $this->info('Everything looks perfect! Now you can start use Namasteji!');
-        $this->info('If you have any question please contact with me by email: kamil.grzechulskii@gmail.com');
+        $this->info('If you have any question please contact with me by email: bhadarka.jalpesh@gmail.com');
 
         $systemLogs = new SystemLogService();
-        $systemLogs->loadInsertSystemLogs('First usage of process-Namasteji command', 200, 1);
+        $systemLogs->loadInsertSystemLogs('First usage of process-softcrm command', 200, 1);
     }
 }
