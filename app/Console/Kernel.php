@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\processNamasteji::class
+        Commands\processSoftCRM::class
     ];
 
     /**

@@ -16,7 +16,7 @@ class CreateAreaTable extends Migration
         Schema::create('area', function (Blueprint $table) {
             $table->increments('id');
             $table->text('name');
-            $table->foreign('zone_id')->references('id')->on('districtzone');        
+            $table->unsignedInteger('zone_id');        
             $table->boolean('is_active')->nullable()->default(1);
             $table->timestamps();
             $table->dateTime('deleted_at')->nullable();
