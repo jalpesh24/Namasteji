@@ -131,4 +131,25 @@ Route::group(['prefix' => 'countryzone'], function () {
     Route::get('set-active/{id}/{value}', 'CRM\CountryzoneController@processCountryzoneSetIsActive')->name('processSetIsActive');
 });
 
+Route::group(['prefix' => 'statezone'], function () {
+    Route::get('/', 'CRM\StatezoneController@processListOfStatezone')->name('statezone');
+    Route::get('form/create', 'CRM\StatezoneController@processRenderCreateForm')->name('processRenderCreateForm');
+    Route::get('form/update/{clientId}', 'CRM\StatezoneController@processRenderUpdateForm')->name('processRenderUpdateForm');
+    Route::get('view/{clientId}', 'CRM\StatezoneController@processShowStatezoneDetails')->name('viewStatezoneDetails');
+    Route::post('store', 'CRM\StatezoneController@processStoreStatezone')->name('processStoreStatezone');
+    Route::put('update/{employeeId}', 'CRM\StatezoneController@processUpdateStatezone')->name('processUpdateStatezone');
+    Route::delete('delete/{clientId}', 'CRM\StatezoneController@processDeleteStatezone')->name('processDeleteStatezone');
+    Route::get('set-active/{id}/{value}', 'CRM\StatezoneController@processStatezoneSetIsActive')->name('processSetIsActive');
+});
+
+Route::group(['prefix' => 'districtzone'], function () {
+    Route::get('/', 'CRM\DistrictzoneController@processListOfDistrictzone')->name('districtzone');
+    Route::get('form/create', 'CRM\DistrictzoneController@processRenderCreateForm')->name('processRenderCreateForm');
+    Route::get('form/update/{clientId}', 'CRM\DistrictzoneController@processRenderUpdateForm')->name('processRenderUpdateForm');
+    Route::get('view/{clientId}', 'CRM\DistrictzoneController@processShowDistrictzoneDetails')->name('viewDistrictzoneDetails');
+    Route::post('store', 'CRM\DistrictzoneController@processStoreDistrictzone')->name('processStoreDistrictzone');
+    Route::put('update/{employeeId}', 'CRM\DistrictzoneController@processUpdateDistrictzone')->name('processUpdateDistrictzone');
+    Route::delete('delete/{clientId}', 'CRM\DistrictzoneController@processDeleteDistrictzone')->name('processDeleteDistrictzone');
+    Route::get('set-active/{id}/{value}', 'CRM\DistrictzoneController@processDistrictzoneSetIsActive')->name('processSetIsActive');
+});
 

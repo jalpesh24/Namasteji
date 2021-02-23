@@ -1,8 +1,8 @@
 @extends('layouts.base')
 
-@section('caption', 'Edit empoloyees')
+@section('caption', 'Edit District')
 
-@section('title', 'Edit empoloyees')
+@section('title', 'Edit District')
 
 @section('lyric', 'lorem ipsum')
 
@@ -22,7 +22,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            {{ Form::model($countryzone, ['route' => ['processUpdateCountryzone', $countryzone->id], 'method' => 'PUT']) }}
+                            {{ Form::model($districtzone, ['route' => ['processUpdateDistrictzone', $districtzone->id], 'method' => 'PUT']) }}
                             <div class="form-group input-row">
                                 {{ Form::label('name', 'Name') }}
                                 <div class="input-group">
@@ -34,7 +34,7 @@
 
 
                         <div class="col-lg-12 validate_form">
-                            {{ Form::submit('Edit Coundtryzone', ['class' => 'btn btn-primary']) }}
+                            {{ Form::submit('Edit Districtzone', ['class' => 'btn btn-primary']) }}
                         </div>
                         {{ Form::close() }}
                     </div>

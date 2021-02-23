@@ -12,15 +12,15 @@
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-user"></i>Dependencies<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
+                <!-- <a href="#"><i class="fa fa-user"></i>Dependencies<span class="fa arrow"></span></a> -->
+                <!-- <ul class="nav nav-second-level"> -->
+                   
                         <a href="{{ route('clients') }}">Clients<span class="label label-dependencies pull-right" style="margin-top:4px;">{{ Cache::get('countClients') }}</span></a>
                         <a href="{{ route('employees') }}">Employees<span class="label label-dependencies pull-right" style="margin-top:4px">{{ Cache::get('countEmployees') }}</span></a>
                         <a href="{{ route('deals') }}">Deals<span class="label label-dependencies pull-right" style="margin-top:4px">{{ Cache::get('countDeals') }}</span></a>
                         <a href="{{ route('companies') }}">Companies<span class="label label-dependencies pull-right" style="margin-top:4px">{{ Cache::get('countCompanies') }}</span></a>
-                    </li>
-                </ul>
+                    
+                <!-- </ul> -->
             </li>
             <li>
                 <a href="#"><i class="fa fa-money"></i>Marketing<span class="fa arrow"></span></a>
@@ -46,7 +46,8 @@
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="{{ route('countryzone') }}">Country Zone<span class="label label-sales pull-right" style="margin-top:4px">{{ Cache::get('countcountryZone') }}</span></a>
-                        <a href="{{ route('sales') }}">Sales<span class="label label-sales pull-right" style="margin-top:4px">{{ Cache::get('countSales') }}</span></a>
+                        <a href="{{ route('statezone') }}">State Zone<span class="label label-sales pull-right" style="margin-top:4px">{{ Cache::get('countstateZone') }}</span></a>
+                        <a href="{{ route('districtzone') }}">District Zone<span class="label label-sales pull-right" style="margin-top:4px">{{ Cache::get('coundistrictZone') }}</span></a>
                     </li>
                 </ul>
             </li>

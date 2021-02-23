@@ -48,7 +48,7 @@ class CountryzoneController extends Controller
     {
         return View::make('crm.countryzone.edit')->with(
             [
-                'Countryzone' => $this->countryzoneService->loadCountryzone($CountryzoneId),
+                'countryzone' => $this->countryzoneService->loadCountryzones($CountryzoneId),
                 // 'dataWithPluckOfCompanies' => $this->countryzoneService->pluckCompanies()
             ]
         );
