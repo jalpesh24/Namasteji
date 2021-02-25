@@ -6,6 +6,8 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Hash;
+use app\Models\AdminModel;
 
 class EmployeesModel extends Model
 {
@@ -36,19 +38,32 @@ class EmployeesModel extends Model
 
     public function storeEmployee(array $requestedData, int $adminId) : int
     {
-        return $this->insertGetId(
-            [
-                'full_name' => $requestedData['full_name'],
-                'phone' => $requestedData['phone'],
-                'email' => $requestedData['email'],
-                'job' => $requestedData['job'],
-                'note' => $requestedData['note'],
-                'client_id' => $requestedData['client_id'],
-                'created_at' => now(),
-                'is_active' => 1,
-                'admin_id' => $adminId
-            ]
-        );
+        
+        $newPassword = 123456;
+			
+		$userData = AdminModel::where('email' , $requestedData['email'])->first();
+		if(!$userData) {
+				$user = new AdminModel;
+					$user->name = $requestedData['full_name'];
+					$user->email = $requestedData['email'];
+					$user->password=Hash::make($newPassword);
+                    $user->role_type=3;				
+					$user->save();	 					
+			
+            return $this->insertGetId(
+                [
+                    'full_name' => $requestedData['full_name'],
+                    'phone' => $requestedData['phone'],
+                    'email' => $requestedData['email'],
+                    'job' => $requestedData['job'],
+                    'note' => $requestedData['note'],
+                    'client_id' => $requestedData['client_id'],
+                    'created_at' => now(),
+                    'is_active' => 1,
+                    'admin_id' => $adminId
+                ]
+            );
+        }
     }
 
     public function updateEmployee(int $employeeId, array $requestedData) : int

@@ -1,5 +1,13 @@
 <nav class="navbar-default navbar-side" role="navigation">
     <div class="sidebar-collapse">
+    <?php 
+        if(Auth::user()->role_type == 3){ ?>
+            <ul class="nav" id="main-menu">           
+            <li>
+                <a href="{{ URL::to('/') }}">Dashboard</a>
+            </li>
+            </ul>
+        <?php } if(Auth::user()->role_type == 2){ ?>?>
         <ul class="nav" id="main-menu">
 
             <li>
@@ -62,6 +70,7 @@
             <li><i class="fa fa-cogs" aria-hidden="true"></i> Operations: {{ Cache::get('countAllRowsInDb')  }}</li>
             <li><i class="fa fa-book" aria-hidden="true"></i> System logs: {{ Cache::get('countSystemLogs') }}</li>
         </ul>
+        <?php } ?>
         
     </div>
 </nav>

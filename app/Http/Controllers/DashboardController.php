@@ -17,6 +17,7 @@ use App\Services\TasksService;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redirect;
 use View;
+use Auth;
 
 class DashboardController extends Controller
 {
@@ -53,6 +54,9 @@ class DashboardController extends Controller
 
     public function index()
     {
+        if(Auth::user()->role_type == 3){
+            return View::make('executive.index');
+        }else{
         $this->storeInCacheUsableVariables();
 
         return View::make('index')->with(
@@ -65,6 +69,7 @@ class DashboardController extends Controller
                 'currency' => $this->settingsService->loadSettingValue('currency')
             ]
         );
+        }
     }
 
     public function calculateTaskEveryMonth($isCompleted)
