@@ -153,3 +153,7 @@ Route::group(['prefix' => 'districtzone'], function () {
     Route::get('set-active/{id}/{value}', 'CRM\DistrictzoneController@processDistrictzoneSetIsActive')->name('processSetIsActive');
 });
 
+Route::resource('projects', ProjectController::class);
+Route::resource('marketingcategory', CRM\MarketingCategoryController::class);
+Route::resource('productcategory', CRM\ProductCategoryController::class);
+
