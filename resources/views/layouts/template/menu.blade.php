@@ -11,7 +11,18 @@
                 <ul class="nav nav-second-level">
                     <li>
                     <!-- <a href="{{ URL::to('/projects') }}">Projects<span class="label label-marketing pull-right" style="margin-top:4px"></span></a> -->
-                    <a href="{{ URL::to('/meeting') }}">Meeting<span class="label label-marketing pull-right" style="margin-top:4px"></span></a>                    
+                    <a href="{{ URL::to('/meeting') }}">Meeting<span class="label label-marketing pull-right" style="margin-top:4px"></span></a>    
+                    <a href="{{ URL::to('/meeting') }}">menu 1<span class="label label-marketing pull-right" style="margin-top:4px"></span></a>  
+                    <a href="{{ URL::to('/meeting') }}">menu 1<span class="label label-marketing pull-right" style="margin-top:4px"></span></a>  
+                    <a href="{{ URL::to('/meeting') }}">menu 1<span class="label label-marketing pull-right" style="margin-top:4px"></span></a>  
+                    <a href="{{ URL::to('/meeting') }}">menu 1<span class="label label-marketing pull-right" style="margin-top:4px"></span></a>  
+                    <a href="{{ URL::to('/meeting') }}">menu 1<span class="label label-marketing pull-right" style="margin-top:4px"></span></a>  
+                    <a href="{{ URL::to('/meeting') }}">menu 1<span class="label label-marketing pull-right" style="margin-top:4px"></span></a>  
+                    <a href="{{ URL::to('/meeting') }}">menu 1<span class="label label-marketing pull-right" style="margin-top:4px"></span></a>  
+                    <a href="{{ URL::to('/meeting') }}">menu 1<span class="label label-marketing pull-right" style="margin-top:4px"></span></a>  
+                    <a href="{{ URL::to('/meeting') }}">menu 1<span class="label label-marketing pull-right" style="margin-top:4px"></span></a>  
+                    <a href="{{ URL::to('/meeting') }}">menu 1<span class="label label-marketing pull-right" style="margin-top:4px"></span></a>  
+                    <a href="{{ URL::to('/meeting') }}">menu 1<span class="label label-marketing pull-right" style="margin-top:4px"></span></a>                    
                     </li>
                 </ul>
             </li>
