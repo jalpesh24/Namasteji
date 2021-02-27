@@ -29,7 +29,7 @@
         </div>
     @endif
 
-    <form action="{{ route('productcategory.update', $productcategory->id) }}" method="POST">
+    <form action="{{ route('productcategory.update', $project->id) }}" method="POST">
         @csrf
         @method('PUT')
 
@@ -37,21 +37,30 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Name:</strong>
-                    <input type="text" name="name" value="{{ $productcategory->name }}" class="form-control" placeholder="Name">
+                    <input type="text" name="name" value="{{ $project->name }}" class="form-control" placeholder="Name">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Marketing Category:</strong>
-                    <select name="market_category" class = "form-control">
-                        <option value="">Select Option  </option>
-                        @foreach ($Marketingcategory as $marketingcat)
-                            <option value="{{$marketingcat->id}}" <?php if($productcategory->market_category  == $marketingcat->id){ echo 'selected'; } ?>>{{$marketingcat->name}} </option>
-                        @endforeach
-                    </select>
+                    <strong>Introduction:</strong>
+                    <textarea class="form-control" style="height:50px" name="introduction"
+                        placeholder="Introduction">{{ $project->introduction }}</textarea>
                 </div>
             </div>
-            
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Location:</strong>
+                    <input type="text" name="location" class="form-control" placeholder="{{ $project->location }}"
+                        value="{{ $project->location }}">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Cost:</strong>
+                    <input type="number" name="cost" class="form-control" placeholder="{{ $project->cost }}"
+                        value="{{ $project->location }}">
+                </div>
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>

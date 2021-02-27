@@ -154,6 +154,7 @@ Route::group(['prefix' => 'districtzone'], function () {
 });
 
 Route::resource('projects', ProjectController::class);
+Route::resource('meeting', CRM\MeetingController::class);
 Route::resource('marketingcategory', CRM\MarketingCategoryController::class);
 Route::resource('productcategory', CRM\ProductCategoryController::class);
 

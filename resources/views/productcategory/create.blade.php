@@ -1,8 +1,8 @@
 @extends('layouts.base')
 
-@section('caption', 'Add empoloyees')
+@section('caption', 'Add Product Category')
 
-@section('title', 'Add empoloyees')
+@section('title', 'Add Product Category')
 
 @section('lyric', 'lorem ipsum')
 
@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Add New Product</h2>
+                <h2>Add New Product Category</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('productcategory.index') }}" title="Go back"> <i class="fas fa-backward "></i> </a>
@@ -41,11 +41,11 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Marketing Category:</strong>
-                    <select name="markettype" class = "form-control">
-                        <option value="1">digital  </option>
-                        <!-- @foreach ($productcategory as $productcat)
-                            <option value="">Select Type </option>
-                        @endforeach -->
+                    <select name="market_category" class = "form-control">
+                        <option value="">Select Option  </option>
+                        @foreach ($Marketingcategory as $marketingcat)
+                            <option value="{{$marketingcat->id}}">{{$marketingcat->name}} </option>
+                        @endforeach
                     </select>
                 </div>
             </div>

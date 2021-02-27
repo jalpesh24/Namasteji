@@ -14,12 +14,16 @@ class ProductCategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }  
     public function index()
     {
         $productcategory = ProductCategory::latest()->paginate(5);
         foreach($productcategory as $key=>$productcat){
             $Marketingtype = MarketingCategory::where('id',$productcat['market_category'])->first();
-            $productcat[$key]['type'] = $Marketingtype['name'];            
+            $productcategory[$key]['type'] = $Marketingtype['name'];            
        }
 
         return view('productcategory.index', compact('productcategory'))
@@ -46,9 +50,10 @@ class ProductCategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required'            
+            'name' => 'required',
+            'market_category' => 'required'            
         ]);
-
+//dd($request->all());
         ProductCategory::create($request->all());
 
         return redirect()->route('productcategory.index')
@@ -74,7 +79,8 @@ class ProductCategoryController extends Controller
      */
     public function edit(ProductCategory $productcategory)
     {
-        return view('productcategory.edit', compact('productcategory'));
+        $Marketingcategory = MarketingCategory::all();
+        return view('productcategory.edit', compact('productcategory','Marketingcategory'));
     }
     /**
      * Update the specified resource in storage.
@@ -86,7 +92,8 @@ class ProductCategoryController extends Controller
     public function update(Request $request, ProductCategory $ProductCategory)
     {
         $request->validate([
-            'name' => 'required'            
+            'name' => 'required',
+            'market_category' => 'required'            
         ]);
         $ProductCategory->update($request->all());
 

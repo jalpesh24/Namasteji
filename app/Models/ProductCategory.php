@@ -12,13 +12,14 @@ class ProductCategory extends Model
     use SoftDeletes;
 
     protected $table = 'productcategory';
-    protected $fillable = ['name'];
+    protected $fillable = ['name','market_category'];
     protected $dates = ['deleted_at'];
 
     
-    public function storeProduct(array $requestedData, int $adminId) : int
+    public function storeProductCategory(array $requestedData, int $adminId) : int
     {
-        return $this->insertGetId(
+        //dd($requestedData);
+        return $this->insert(
             [
                 'name' => $requestedData['name'],
                 'market_category' => $requestedData['market_category'],                
@@ -28,9 +29,9 @@ class ProductCategory extends Model
         );
     }
 
-    public function updateProduct(int $productId, array $requestedData) : int
+    public function updateProductCategory(int $ProductCategoryId, array $requestedData) : int
     {
-        return $this->where('id', '=', $productId)->update(
+        return $this->where('id', '=', $ProductCategoryId)->update(
             [
                 'name' => $requestedData['name'],
                 'market_category' => $requestedData['market_category'],                
@@ -39,9 +40,9 @@ class ProductCategory extends Model
         );
     }
 
-    public function setActive(int $productId, int $activeType) : int
+    public function setActive(int $ProductCategoryId, int $activeType) : int
     {
-        return $this->where('id', '=', $productId)->update(
+        return $this->where('id', '=', $ProductCategoryId)->update(
             [
                 'is_active' => $activeType,
                 'updated_at' => now()
@@ -49,34 +50,34 @@ class ProductCategory extends Model
         );
     }
 
-    public function countProducts() : int
+    public function countProductCategorys() : int
     {
         return $this->get()->count();
     }
 
-    public function getProductsByCreatedAt()
+    public function getProductCategorysByCreatedAt()
     {
         return $this->all()->sortBy('created_at', 0, true)->slice(0, 5);
     }
 
-    public function findClientByGivenClientId(int $productId)
+    public function findClientByGivenClientId(int $ProductCategoryId)
     {
-        $query = $this->find($productId);
+        $query = $this->find($ProductCategoryId);
 
         Arr::add($query, 'salesCount', count($query->sales));
 
         return $query;
     }
 
-    public function getProducts()
+    public function getProductCategorys()
     {
         return $this->all()->sortBy('created_at');
     }
 
     
 
-    public function getProduct(int $productId) : self
+    public function getProductCategory(int $ProductCategoryId) : self
     {
-        return $this->find($productId);
+        return $this->find($ProductCategoryId);
     }
 }
