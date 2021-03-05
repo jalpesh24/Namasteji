@@ -76,8 +76,6 @@
                         <a href="{{ route('countryzone') }}">Country Zone<span class="label label-sales pull-right" style="margin-top:4px">{{ Cache::get('countcountryZone') }}</span></a>
                         <a href="{{ route('statezone') }}">State Zone<span class="label label-sales pull-right" style="margin-top:4px">{{ Cache::get('countstateZone') }}</span></a>
                         <a href="{{ route('districtzone') }}">District Zone<span class="label label-sales pull-right" style="margin-top:4px">{{ Cache::get('coundistrictZone') }}</span></a>
-                        <a href="{{ route('marketing_category') }}">Marketing Category<span class="label label-sales pull-right" style="margin-top:4px"></span></a>
-                        <a href="{{ route('product_category') }}">Product Category<span class="label label-sales pull-right" style="margin-top:4px"></span></a>
                         <a href="{{ URL::to('/marketingcategory') }}">Marketing Category<span class="label label-sales pull-right" style="margin-top:4px"></span></a>
                         <a href="{{ URL::to('/productcategory') }}">Product Category<span class="label label-sales pull-right" style="margin-top:4px"></span></a>
                     </li>
