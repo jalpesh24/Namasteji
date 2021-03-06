@@ -8,6 +8,9 @@ use App\Services\EmployeesService;
 use App\Services\SystemLogService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\DistrictzoneModel;
+use App\Models\StatezoneModel;
+use App\Models\CountryzoneModel;
 use View;
 use Illuminate\Support\Facades\Redirect;
 
@@ -26,7 +29,10 @@ class EmployeesController extends Controller
 
     public function processRenderCreateForm()
     {
-        return View::make('crm.employees.create')->with(['dataOfClients' => $this->employeesService->pluckData()]);
+        $CountryzoneModel = CountryzoneModel::all();
+        $StatezoneModel = StatezoneModel::all();
+        $DistrictzoneModel = DistrictzoneModel::all();
+        return View::make('crm.employees.create')->with(['dataOfClients' => $this->employeesService->pluckData(),'CountryzoneModel' => $CountryzoneModel,'StatezoneModel' => $StatezoneModel,'DistrictzoneModel' => $DistrictzoneModel]);
     }
 
     public function processShowEmployeeDetails($employeeId)

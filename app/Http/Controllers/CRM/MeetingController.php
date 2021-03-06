@@ -62,7 +62,7 @@ class MeetingController extends Controller
             'email' => 'required'  
 
         ]);
-        dd($post);
+        
 
             $Meeting = new Meeting;
             $Meeting->name = $post('title');
